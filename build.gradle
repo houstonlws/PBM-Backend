@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.houstonlewis'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
 
 java {
     toolchain {
@@ -17,6 +17,14 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+bootJar {
+    mainClass = 'com.houstonlewis.PrintBillMaster.PrintBillMasterApplication'
+}
+
+bootBuildImage {
+    imageName = 'com.houstonlewis/printbillmaster:latest'
 }
 
 repositories {
@@ -31,6 +39,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'com.auth0:java-jwt:4.4.0'
     implementation 'org.json:json:20240303'
+    implementation 'io.github.cdimascio:java-dotenv:5.2.2'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j'
@@ -40,6 +49,6 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}

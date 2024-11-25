@@ -1,11 +1,11 @@
 package com.houstonlewis.PrintBillMaster.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
-import javax.sql.DataSource;
 
 @Component
 public class DatabaseConfig {
@@ -19,7 +19,7 @@ public class DatabaseConfig {
     @Value("${spring.datasource.password}")
     private String password;
 
-    @Value("${spring.datasource.driverClass}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driverClass;
 
     @Bean
@@ -32,6 +32,4 @@ public class DatabaseConfig {
                 .build();
     }
 
-
 }
-
